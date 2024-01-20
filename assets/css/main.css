@@ -2299,33 +2299,6 @@ button,
   padding: 0 10px;
   border-radius: 5px;
 }
-.slide__arraw {
-  padding: 20px;
-  position: absolute;
-  line-height: 20px;
-  font-size: 20px;
-  text-decoration: none;
-  color: white;
-}
-.slide__arraw:hover {
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-  transition: 0.6 ease;
-}
-.slide__arraw--prev {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-}
-.slide__arraw--next {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
 .slide__dot {
   padding: 5px 5px;
   display: flex;

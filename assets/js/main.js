@@ -35,12 +35,6 @@
 			let slideIndex = 1;
 			showSlide(slideIndex);
 	
-			let prev = document.getElementById("prev");
-			prev.addEventListener("click", divideSlides, false);
-	
-			let next = document.getElementById("next");
-			next.addEventListener("click", plusSlides, false);
-	
 			const selectdot = document.querySelectorAll(".dot");
 			for (let i = 0; i < selectdot.length; i++) {
 				selectdot[i].addEventListener("click", function (e) {
