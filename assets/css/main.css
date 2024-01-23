@@ -1242,7 +1242,7 @@ input[type="radio"] + label:before {
     margin: 0 0 3em 0;
     width: 100%; }
     .image.main img {
-      width: 100%; }
+      width: 50%; }
 
 a.image {
   overflow: hidden; }
@@ -2324,3 +2324,5 @@ button,
     opacity: 1;
   }
 }
+
+image main
