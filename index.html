@@ -54,7 +54,9 @@
 										</div>
 									</span>
 								</section>
+								
 								<!-- Anonymous Message Board -->
+								<!--
 								<section id="message-board">
 									<h2>Anonymous Comment</h2>
 									<div id="messages-container">
@@ -71,25 +73,17 @@
 								<script>
 									function postMessage() {
 										var message = document.getElementById('message').value;
-
 										if (message.trim() !== '') {
-											// Reference to your Firebase database's 'messages' node
-											const messagesRef = ref(db, 'messages');
-
-											// Push the new message to Firebase
-											push(messagesRef, {
-												text: message,
-												timestamp: new Date().toISOString()
-											});
-
-											// Clear the input field after posting
-											document.getElementById('message').value = '';
+											var messagesContainer = document.getElementById('messages');
+											var newMessage = document.createElement('div');
+											newMessage.className = 'message';
+											newMessage.textContent = message;
+											messagesContainer.appendChild(newMessage);
+											document.getElementById('message').value = ''; // Clear the input field after posting
 										}
 									}
 								</script>
-
-							
-
+								-->
 						</div>
 					</div>
 
@@ -159,7 +153,7 @@
 				// Import the functions you need from the SDKs you need
 				import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
 				import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-analytics.js";
-				import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js";
+				import { getDatabase } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js";
 				// TODO: Add SDKs for Firebase products that you want to use
 				// https://firebase.google.com/docs/web/setup#available-libraries
 			  
@@ -178,10 +172,8 @@
 			  
 				// Initialize Firebase
 				const app = initializeApp(firebaseConfig);
-    			const analytics = getAnalytics(app);
-    			const db = getDatabase(app);
-				
-			  </script>
+				const analytics = getAnalytics(app);
+			</script>
 
 	</body>
 </html>
