@@ -70,7 +70,9 @@
 								</section>
 								<script>
 									function postMessage() {
+										var db = firebase.database();
 										var message = document.getElementById('message').value;
+										db.ref("/content").push(message)
 										if (message.trim() !== '') {
 											var messagesContainer = document.getElementById('messages');
 											var newMessage = document.createElement('div');
@@ -149,6 +151,29 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script type="module">
+				// Import the functions you need from the SDKs you need
+				import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+				import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-analytics.js";
+				// TODO: Add SDKs for Firebase products that you want to use
+				// https://firebase.google.com/docs/web/setup#available-libraries
+			  
+				// Your web app's Firebase configuration
+				// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+				const firebaseConfig = {
+				  apiKey: "AIzaSyAmOy1e-lKOzV-S787RpX4o0tbO7Xq_JbU",
+				  authDomain: "nsmun-news.firebaseapp.com",
+				  projectId: "nsmun-news",
+				  storageBucket: "nsmun-news.appspot.com",
+				  messagingSenderId: "250688428320",
+				  appId: "1:250688428320:web:a3df4abe27932992091f45",
+				  measurementId: "G-30HY1VG4EF"
+				};
+			  
+				// Initialize Firebase
+				const app = initializeApp(firebaseConfig);
+				const analytics = getAnalytics(app);
+			  </script>
 
 	</body>
 </html>
