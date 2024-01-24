@@ -54,6 +54,33 @@
 										</div>
 									</span>
 								</section>
+								<!-- Anonymous Message Board -->
+								<section id="message-board">
+									<h2>Anonymous Comment</h2>
+									<div id="messages-container">
+										<div id="messages"></div>
+									</div>
+									<form id="message-form">
+										<label for="message">Leave a message:</label>
+										<textarea id="message" placeholder="Type your message here"></textarea>
+										<div class="form-actions">
+											<button type="button" onclick="postMessage()">Post Message</button>
+										</div>
+									</form>
+								</section>
+								<script>
+									function postMessage() {
+										var message = document.getElementById('message').value;
+										if (message.trim() !== '') {
+											var messagesContainer = document.getElementById('messages');
+											var newMessage = document.createElement('div');
+											newMessage.className = 'message';
+											newMessage.textContent = message;
+											messagesContainer.appendChild(newMessage);
+											document.getElementById('message').value = ''; // Clear the input field after posting
+										}
+									}
+								</script>
 
 							
 

@@ -2323,6 +2323,25 @@ button,
   to {
     opacity: 1;
   }
+}   
+/* Add rounded corners to the comment messages */
+#messages-container .message {
+  background-color: #f0f0f0; /* Set the background color */
+  border-radius: 10px; /* Add rounded corners */
+  padding: 10px; /* Add padding to create space inside the comment box */
+  margin-bottom: 10px; /* Add margin to separate individual comments */
 }
 
-image main
+/* Adjust spacing between the textarea and the "Post Message" button */
+#message-form {
+  margin-top: 20px; /* Increase top margin to add space */
+}
+
+#message-form textarea {
+  width: 100%; /* Make the textarea take up the full width */
+  margin-bottom: 10px; /* Add bottom margin to separate textarea and button */
+}
+
+#message-form button {
+  margin-top: 10px; /* Add top margin to separate button from textarea */
+}
