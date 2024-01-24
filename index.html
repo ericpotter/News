@@ -71,13 +71,19 @@
 								<script>
 									function postMessage() {
 										var message = document.getElementById('message').value;
+
 										if (message.trim() !== '') {
-											var messagesContainer = document.getElementById('messages');
-											var newMessage = document.createElement('div');
-											newMessage.className = 'message';
-											newMessage.textContent = message;
-											messagesContainer.appendChild(newMessage);
-											document.getElementById('message').value = ''; // Clear the input field after posting
+											// Reference to your Firebase database's 'messages' node
+											const messagesRef = ref(db, 'messages');
+
+											// Push the new message to Firebase
+											push(messagesRef, {
+												text: message,
+												timestamp: new Date().toISOString()
+											});
+
+											// Clear the input field after posting
+											document.getElementById('message').value = '';
 										}
 									}
 								</script>
@@ -174,23 +180,7 @@
 				const app = initializeApp(firebaseConfig);
     			const analytics = getAnalytics(app);
     			const db = getDatabase(app);
-				function postMessage() {
-					var message = document.getElementById('message').value;
-
-					if (message.trim() !== '') {
-						// Reference to your Firebase database's 'messages' node
-						const messagesRef = ref(db, 'messages');
-
-						// Push the new message to Firebase
-						push(messagesRef, {
-							text: message,
-							timestamp: new Date().toISOString()
-						});
-
-						// Clear the input field after posting
-						document.getElementById('message').value = '';
-					}
-				}
+				
 			  </script>
 
 	</body>
