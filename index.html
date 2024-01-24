@@ -71,7 +71,6 @@
 								<script>
 									function postMessage() {
 										var message = document.getElementById('message').value;
-										var db = firebase.database();
 										if (message.trim() !== '') {
 											var messagesContainer = document.getElementById('messages');
 											var newMessage = document.createElement('div');
@@ -174,6 +173,7 @@
 				// Initialize Firebase
 				const app = initializeApp(firebaseConfig);
 				const analytics = getAnalytics(app);
+				var db = firebase.database();
 			  </script>
 
 	</body>
