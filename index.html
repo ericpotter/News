@@ -72,7 +72,7 @@
 									function postMessage() {
 										var db = firebase.database();
 										var message = document.getElementById('message').value;
-										db.ref("/content").push(message)
+										db.ref("/home").push(message)
 										if (message.trim() !== '') {
 											var messagesContainer = document.getElementById('messages');
 											var newMessage = document.createElement('div');
