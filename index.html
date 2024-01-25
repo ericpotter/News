@@ -57,7 +57,6 @@
 								</section>
 								
 								<!-- Anonymous Message Board -->
-								<!--
 								<section id="message-board">
 									<h2>Anonymous Comment</h2>
 									<div id="messages-container">
@@ -67,24 +66,10 @@
 										<label for="message">Leave a message:</label>
 										<textarea id="message" placeholder="Type your message here"></textarea>
 										<div class="form-actions">
-											<button type="button" onclick="postMessage()">Post Message</button>
+											<button type="button" id="post-comment">Post Message</button>
 										</div>
 									</form>
 								</section>
-								<script>
-									function postMessage() {
-										var message = document.getElementById('message').value;
-										if (message.trim() !== '') {
-											var messagesContainer = document.getElementById('messages');
-											var newMessage = document.createElement('div');
-											newMessage.className = 'message';
-											newMessage.textContent = message;
-											messagesContainer.appendChild(newMessage);
-											document.getElementById('message').value = ''; // Clear the input field after posting
-										}
-									}
-								</script>
-								-->
 						</div>
 					</div>
 
@@ -150,11 +135,13 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/firebase-init.js"></script>
 			<!--Database-->
 			<script type="module">
 				// Import the functions you need from the SDKs you need
 				import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
 				import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-analytics.js";
+				import { getDatabase, set, get, update, remove, ref, child, onValue, } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js";
 				// TODO: Add SDKs for Firebase products that you want to use
 				// https://firebase.google.com/docs/web/setup#available-libraries
 			  
@@ -174,6 +161,45 @@
 				// Initialize Firebase
 				const app = initializeApp(firebaseConfig);
 				const analytics = getAnalytics(app);
+				const db = getDatabase();
+				var comment = document.querySelector("#message");
+				var message = document.getElementById('message').value;
+				var pushButton = document.querySelector("#post-comment");
+			
+				function pushComment() {
+					set(ref(db,"home/" + comment.value),{
+						Comment: comment.value,
+					})
+				}
+
+				function fetchComments() {
+					const messagesContainer = document.getElementById("messages");
+
+					// Reference to the "home" node in the database
+					const homeRef = ref(db, "home");
+
+					// Listen for changes in the data
+					onValue(homeRef, (snapshot) => {
+						messagesContainer.innerHTML = ""; // Clear existing messages
+
+						// Loop through each comment in the snapshot
+						snapshot.forEach((childSnapshot) => {
+							const commentData = childSnapshot.val();
+							const commentElement = document.createElement("div");
+							commentElement.textContent = commentData.Comment;
+							commentElement.classList.add("message"); // Add .message class
+							messagesContainer.appendChild(commentElement);
+						});
+					});
+				}
+
+				
+					// Call fetchComments when the page loads
+				document.addEventListener("DOMContentLoaded", () => {
+					fetchComments();
+				});
+
+				pushButton.addEventListener("click", pushComment);
 			  </script>
 	</body>
 </html>
