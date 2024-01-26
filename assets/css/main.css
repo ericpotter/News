@@ -2368,10 +2368,10 @@ button,
 
 #prev-button {
   text-align: left;
-  margin: 20px 0; 
+  margin: 20px 0px 20px 0px; 
 }
 
 #next-button {
   text-align: left;
-  margin: 20px 0; 
+  margin: 20px 0px 20px 0px; 
 }
