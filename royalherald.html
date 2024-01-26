@@ -23,7 +23,27 @@
 								</header>
 
 							<!-- Content -->
-								<section>
+								<section id="section1">
+									<header class="main">
+										<h1>What a Shame!!! A Dominant Country Lost Control in the Conference and Its Global Position</h1>
+										<p>2024/1/26 15:12</p>
+									</header>
+
+									<h4>"Beyond" the committee members' expectations, the United Kingdom of Great Britain and Northern Ireland seemed to be abnormally silent at the conference, adopting a passive stance on all issues. As a permanent member of the United Nations, a key player in the Canal conflict, and a significant global member, the UK not only failed to actively participate in discussions and negotiations during the conference but, on the contrary, had very low involvement. According to statistics, as of November 7th, the UK delegate spoke only 12 times in the entire seven-day conference. Compared to actively participating countries, Israel spoke 27 times, France 29 times, and the United States an astonishing 40 times.</h4>
+
+									<h4>"We didn't stay silent! We have reached many consensuss with other countries in the past few days!" The delegate grumpily stated. In accordance with the data, however, the number of times the UK spoke was far less than other major nations at the conference. So why does the UK representative assert such excessive confidence in claiming active participation?</h4>
+
+									<h4>In addition, all actions and policies of the UK, even decisions regarding war and ceasefire, closely followed those of France. The UK stated, "Our position happens to be exactly the same as France's." But can having a similar position serve as an excuse for silence and inaction?</h4>
+
+									<h4>To make matters worse, the UK, originally one of the builders and stakeholders of the Suez Canal, had lost its control of the Canal, and eventually lost all its stake and control over the canal due to its failure to defend its interests.</h4>
+
+									<h4>"Why do you always do nothing but follow France’s steps? Aren’t the UK and France two independent countries? Or are you suggesting that the UK is second to France?"  In the press conference, the reporter questioned the delegate of the UK. However, the UK responded with mumbles and vague words. It is even suspected that the UK did not comprehensively understand the questions raised.</h4>
+
+									<h4>“Active” as it proclaimed, the UK’s indifference toward the urgent issues discussed in the conference is so apparent. Undoubtedly, the UK has lost its international standing in the General Assembly.</h4>
+
+
+								</section>
+								<section id="section2" style="display:none;">
 									<header class="main">
 										<h1>France and UK: From Stakeholder to Beggar</h1>
 										<p>2024/1/26 01:37</p>
@@ -45,9 +65,8 @@
 
 									<h4>The negotiation today ended up in stagnation, still reaching NO consensus on ceasefire and the justifiability of the nationalization of the Canal. Will the consultation come in peace? Please stay in tune!</h4>
 
-
 								</section>
-								<section>
+								<section id="section3" style="display:none;">
 									<header class="main">
 										<h1>Suez Crisis: Will Nationalization Result in War?</h1>
 										<p>2024/1/24 23:26</p>
@@ -84,6 +103,12 @@
 									<h4>Through fierce debates, there seems to be no consensus reached on the conference. One bloc, led by the USA and Saudi Arabia, requested Franco-British coalition forces to withdraw from Egypt as soon as possible. On the other hand, the other bloc, led by the UK, France, and Israel, insisted that this was an efficient way to retrieve peace in the Middle East. Eventually, the USA and Saudi Arabia obtained support from the USSR, Turkey, and so on. Therefore, the DD asking for withdrawal finally passed by the special session. Nevertheless, the session didn’t have the right of constraint, so the military action wouldn’t stop despite the DD. Let’s see what will happen at the conference tomorrow. Would France and the UK abide by the Draft Directive or keep posing a threat to the lives of Egyptians? Please stay in tune!</h4>
 									
 								</section>
+								
+
+								<div id="section-navigation">
+									<button id="prev-button">Previous Page</button>
+									<button id="next-button">Next Page</button>
+								</div>
 
 								<!-- Anonymous Message Board -->
 								<section id="message-board">
@@ -156,7 +181,6 @@
 
 						</div>
 					</div>
-
 			</div>
 
 		<!-- Scripts -->
@@ -233,6 +257,33 @@
 				});
 
 				pushButton.addEventListener("click", pushComment);
+			  </script>
+
+			  <!--Page Change-->
+			  <script>
+				let currentSection = 'section1';
+
+				function showSection(sectionId) {
+					document.getElementById(currentSection).style.display = 'none';
+					document.getElementById(sectionId).style.display = 'block';
+					currentSection = sectionId;
+				}
+
+				document.getElementById('prev-button').addEventListener('click', () => {
+					if (currentSection === 'section2') {
+						showSection('section1');
+					} else if (currentSection === 'section3') {
+						showSection('section2');
+					}
+				});
+
+				document.getElementById('next-button').addEventListener('click', () => {
+					if (currentSection === 'section1') {
+						showSection('section2');
+					} else if (currentSection === 'section2') {
+						showSection('section3');
+					}  
+				});
 			  </script>
 
 	</body>

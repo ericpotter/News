@@ -2365,3 +2365,13 @@ button,
 #messages-container::-webkit-scrollbar-track {
   background-color: #ddd; /* Track color */
 }
+
+#prev-button {
+  text-align: left;
+  margin: 20px 0; 
+}
+
+#next-button {
+  text-align: left;
+  margin: 20px 0; 
+}
