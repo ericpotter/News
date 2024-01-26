@@ -23,7 +23,28 @@
 								</header>
 
 							<!-- Content -->
-							<section id="section1">
+							<section id="scetion1">
+								<header class="main">
+									<h1>After the MUN: What Delegates Can Learn</h1>
+									<p>2024/1/26 20:48</p>
+								</header>
+
+								<span class="image main"><img src="images/globalstorm/0126-1.jpg" alt="" style="float: right; margin: 15px 0px 0px 15px" /></span>
+
+								<h4>Following the Model United Nations (MUN) conference, valuable lessons and insights emerged:</h4>
+								
+								<h4>Contrary to the formalities in front of the curtain, the true excitement often unfolds behind the scenes. Engaging with others, delegates step into distinct roles, revealing this interaction as one of the conference's most thrilling aspects. Post-closing luncheon, animated discussions fill a corner of the restaurant. Here, the chair shares reflections on the conference with delegates, offering guidance on speech skills. Questions like "What are you good at?" prompt delegates to acknowledge language challenges and express a commitment to improving their English abilities.</h4>
+
+								<span class="image main"><img src="images/globalstorm/0126-2.jpg" alt="" style="float: left; margin: 0px 15px 0px 0px" /></span>
+								
+								<h4>Post-closing luncheon, animated discussions fill a corner of the restaurant. Here, the chair shares reflections on the conference with delegates, offering guidance on speech skills. Questions like "What are you good at?" prompt delegates to acknowledge language challenges and express a commitment to improving their English abilities.</h4>
+
+								<h4>The chair's role is multifaceted. While projecting an intimidating image during the conference, outside this role, they are seasoned individuals with a wealth of experience. This dynamic reinforces that chairs are not solely defined by their formal positions. Engagement extends beyond formal sessions. Delegates continue discussions during breaks and after the conference, immersing themselves in the delegate role. They contemplate resolutions from the perspective of the countries they represent. As the conference concludes, the chair queries delegates on their learning experiences. Some respond affirmatively, while others remain silent. The chair, alongside the rapporteur, steps forward to offer practical skills and insights about the conference and the MUN mindset.</h4>
+
+								<h4>Although some delegates may not fully grasp their growth during the conference, it is certain that everyone has progressed through their speeches. A notable observation is that, in the General Assembly, all delegates find reporters more intimidating than chairs. In conclusion, Global Storm congratulates the award-winning delegates. Well done to all!</h4>
+
+							</section>
+							<section id="section2" style="display:none;">
 								<header class="main">
 									<h1>Suez Canal Crisis: Day 5 - ICRC Humanitarian Condemnation and the Shattering of Anglo-French Imperial Dreams</h1>
 									<p>2024/1/26 02:34</p>
@@ -77,7 +98,7 @@
 
 								<h4>The emergency special session is still ongoing, but decisions are getting closer. This publication will continue to monitor the developments of the conference. Please stay tuned for the next report.</h4>
 							</section>
-							<section id="section2" style="display:none;">
+							<section id="section3" style="display:none;">
 								<header class="main">
 									<h1>Suez Canal Crisis: Egypt Absent the Next Day! UK and France Unjustly Declare War</h1>
 									<p>2024/1/24 23:44</p>
@@ -298,13 +319,17 @@
 				document.getElementById('prev-button').addEventListener('click', () => {
 					if (currentSection === 'section2') {
 						showSection('section1');
+					} else if (currentSection === 'section3') {
+						showSection('section2');
 					} 
 				});
 
 				document.getElementById('next-button').addEventListener('click', () => {
 					if (currentSection === 'section1') {
 						showSection('section2');
-					}   
+					} else if (currentSection === 'section2') {
+						showSection('section3');
+					}
 				});
 			  </script>
 
