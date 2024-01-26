@@ -255,9 +255,11 @@
 				var pushButton = document.querySelector("#post-comment");
 			
 				function pushComment() {
-					set(ref(db,"libertytimes/" + comment.value),{
-						Comment: comment.value,
-					})
+					if (comment.value.trim() !== ''){
+						set(ref(db,"libertytimes/" + comment.value),{
+							Comment: comment.value,
+						})
+					}
 				}
 
 				function fetchComments() {
