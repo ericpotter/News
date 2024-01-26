@@ -23,7 +23,18 @@
 								</header>
 
 							<!-- Content -->
-							<section>
+							<section id="section1">
+								<header class="main">
+									<h1>Reach consensus? End the deadlock? What will the conclusion be?</h1>
+									<p>2024/1/25 16:42</p>
+								</header>
+
+								<h4>Addressing the long-standing international dispute over privacy issues in UNESCO, representatives from each country are expected to reach a conclusion. This will bring closure to the current session. During the meeting, it was evident that country groups were actively engaged in discussions and continuously modifying possible draft resolutions.</h4>
+
+								<h4>In the first session today, some country groups began introducing potential amendments to representatives, but in the next session, debates were still ongoing. Throughout the three-day conference, the meeting outcome will be determined by a vote on draft resolution 1.2.</h4>
+
+							</section>
+							<section id="section2" style="display:none;">
 								<header class="main">
 									<h1>The Dual-edged Sword of Technology – Which is More Important, Ethics or National Security?</h1>
 									<p>2024/1/25 18:06</p>
@@ -59,7 +70,7 @@
 
 
 							</section>
-							<section>
+							<section id="section3" style="display:none;">
 								<header class="main">
 									<h1>Impact of Social Credit System: Is China the Biggest Winner?</h1>
 									<p>2024/1/24 22:32</p>
@@ -88,6 +99,11 @@
 								<h4>Switzerland has stated its support for the advancement of facial recognition but opposes China's abuse of such facial recognition technology to violate human rights. Simultaneously, Switzerland has emphasized that access to this facial recognition technology should be restricted to governmental authorities to prevent unnecessary misuse and misjudgments.</h4>
 								
 							</section>
+
+							<div id="section-navigation">
+								<button id="prev-button">Previous Page</button>
+								<button id="next-button">Next Page</button>
+							</div>
 
 							<!-- Anonymous Message Board -->
 							<section id="message-board">
@@ -238,7 +254,34 @@
 				});
 
 				pushButton.addEventListener("click", pushComment);
-			  </script>
+			</script>
+
+			<!--Page Change-->
+			<script>
+				let currentSection = 'section1';
+
+				function showSection(sectionId) {
+					document.getElementById(currentSection).style.display = 'none';
+					document.getElementById(sectionId).style.display = 'block';
+					currentSection = sectionId;
+				}
+
+				document.getElementById('prev-button').addEventListener('click', () => {
+					if (currentSection === 'section2') {
+						showSection('section1');
+					} else if (currentSection === 'section3') {
+						showSection('section2');
+					}
+				});
+
+				document.getElementById('next-button').addEventListener('click', () => {
+					if (currentSection === 'section1') {
+						showSection('section2');
+					} else if (currentSection === 'section2') {
+						showSection('section3');
+					}
+				});
+			</script>
 
 	</body>
 </html>

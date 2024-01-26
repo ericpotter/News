@@ -23,7 +23,7 @@
 								</header>
 
 							<!-- Content -->
-							<section>
+							<section id="section1">
 								<header class="main">
 									<h1>《安理會持續僵局 英法外交關係現裂痕？》</h1>
 									<p>2024/1/26 01:02</p>
@@ -46,7 +46,7 @@
 								<h4>經過激烈辯論後，聯合國安全理事會對於英美違法入侵伊拉克一事看似在特定方面已有初步共識，如今會期即將迎來尾聲，本報會持續關心此次會議結果。</h4>
 
 							</section>
-							<section>
+							<section id="section2" style="display:none;">
 								<header class="main">
 									<h1>《速報！英美於安理會議程中動武，入侵伊拉克》</h1>
 									<p>2024/1/25 14:43</p>
@@ -65,7 +65,7 @@
 								<h4>聯合國安全理事會會期仍在進行中，本報將會持續追蹤報導。</h4>
 
 							</section>
-							<section>
+							<section id="section3" style="display:none;">
 								<header class="main">
 									<h1>《反對美軍駐科 英美德法中激辯》</h1>
 									<p>2024/1/24 22:50</p>
@@ -92,6 +92,11 @@
 								<h4>在伊拉克是否持有，或是是否仍舊持有大規模毀滅性武器，以及伊拉克是否確實執行聯合國安理會1441號決議，在本次會議的第一天仍未被解決。</h4>
 
 							</section>
+
+							<div id="section-navigation">
+								<button id="prev-button">Previous Page</button>
+								<button id="next-button">Next Page</button>
+							</div>
 
 							<!-- Anonymous Message Board -->
 							<section id="message-board">
@@ -242,6 +247,33 @@
 				});
 
 				pushButton.addEventListener("click", pushComment);
+			  </script>
+
+			  <!--Page Change-->
+			  <script>
+				let currentSection = 'section1';
+
+				function showSection(sectionId) {
+					document.getElementById(currentSection).style.display = 'none';
+					document.getElementById(sectionId).style.display = 'block';
+					currentSection = sectionId;
+				}
+
+				document.getElementById('prev-button').addEventListener('click', () => {
+					if (currentSection === 'section2') {
+						showSection('section1');
+					} else if (currentSection === 'section3') {
+						showSection('section2');
+					}
+				});
+
+				document.getElementById('next-button').addEventListener('click', () => {
+					if (currentSection === 'section1') {
+						showSection('section2');
+					} else if (currentSection === 'section2') {
+						showSection('section3');
+					}  
+				});
 			  </script>
 
 	</body>

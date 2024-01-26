@@ -23,7 +23,7 @@
 								</header>
 
 							<!-- Content -->
-							<section>
+							<section id="section1">
 								<header class="main">
 									<h1>Suez Canal Crisis: Day 5 - ICRC Humanitarian Condemnation and the Shattering of Anglo-French Imperial Dreams</h1>
 									<p>2024/1/26 02:34</p>
@@ -79,7 +79,7 @@
 
 								<h4></h4>
 							</section>
-							<section>
+							<section id="section2" style="display:none;">
 								<header class="main">
 									<h1>Suez Canal Crisis: Egypt Absent the Next Day! UK and France Unjustly Declare War</h1>
 									<p>2024/1/24 23:44</p>
@@ -130,6 +130,11 @@
 								<h4>The surprise attack by the UK and France caught the international community off guard. In the current era, vehemently expelling colonialism from the Earth, their actions seem out of place. The specific future developments remain uncertain, and we await the ongoing coverage of the Emergency Special Session by this newspaper.</h4>
 
 							</section>
+
+							<div id="section-navigation">
+								<button id="prev-button">Previous Page</button>
+								<button id="next-button">Next Page</button>
+							</div>
 
 							<!-- Anonymous Message Board -->
 							<section id="message-board">
@@ -280,6 +285,29 @@
 				});
 
 				pushButton.addEventListener("click", pushComment);
+			  </script>
+
+			  <!--Page Change-->
+			  <script>
+				let currentSection = 'section1';
+
+				function showSection(sectionId) {
+					document.getElementById(currentSection).style.display = 'none';
+					document.getElementById(sectionId).style.display = 'block';
+					currentSection = sectionId;
+				}
+
+				document.getElementById('prev-button').addEventListener('click', () => {
+					if (currentSection === 'section2') {
+						showSection('section1');
+					} 
+				});
+
+				document.getElementById('next-button').addEventListener('click', () => {
+					if (currentSection === 'section1') {
+						showSection('section2');
+					}   
+				});
 			  </script>
 
 	</body>

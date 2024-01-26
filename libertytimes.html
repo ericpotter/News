@@ -23,7 +23,7 @@
 								</header>
 
 							<!-- Content -->
-							<section>
+							<section id="section1">
 								<header class="main">
 									<h1>Data Resources Everywhere?!</h1>
 									<p>2024/1/26 11:31</p>
@@ -38,7 +38,7 @@
 								<h4>We must say the solution these countries eventually put on the DR is really disappointing. The public will definitely suspect the efficiency of the three-day conference.</h4>
 
 							</section>
-							<section>
+							<section id="section2" style="display:none;">
 								<header class="main">
 									<h1>Half Way of the Meeting is Still Clarifying Countries’ Stances and NO Further Discussion</h1>
 									<p>2024/1/26 00:12</p>
@@ -87,7 +87,7 @@
 								<h4>We hope that there will be MORE discussion tomorrow so that users can have safer and more immersive experiences, which we have been mentioning.</h4>
 
 							</section>
-							<section>
+							<section id="section3"  style="display:none;">
 								<header class="main">
 									<h1>Seriously? Countries are proposing solutions without detailed information</h1>
 									<p>2024/1/25 18:37</p>
@@ -124,7 +124,7 @@
 								<h4>In the first session on the second day of the meeting, it seems that the delegates had a good opening. However, we still have that the committee could discuss more about other aspects, such as education and more long-term solutions, to cope with the thorny situation now. The public and the countries will also be more accepting of the resolution that UNESCO put forward.</h4>
 								
 							</section>
-							<section>
+							<section id="section4" style="display:none;">
 								<header class="main">
 									<h1>Clarification? Disaster? <br /> Barely ZERO progress in TWO sessions</h1>
 									<p>2024/1/24 20:37</p>
@@ -159,6 +159,11 @@
 								<h4>If they’re not going to discuss further information and talk more, we’re afraid that the public might eventually be disappointed about the result. In other words, countries might not reach a consensus at the end of the conference.</h4>
 
 							</section>
+
+							<div id="section-navigation">
+								<button id="prev-button">Previous Page</button>
+								<button id="next-button">Next Page</button>
+							</div>
 
 							<!-- Anonymous Message Board -->
 							<section id="message-board">
@@ -307,6 +312,37 @@
 				});
 
 				pushButton.addEventListener("click", pushComment);
+			  </script>
+
+			  <!--Page Change-->
+			  <script>
+				let currentSection = 'section1';
+
+				function showSection(sectionId) {
+					document.getElementById(currentSection).style.display = 'none';
+					document.getElementById(sectionId).style.display = 'block';
+					currentSection = sectionId;
+				}
+
+				document.getElementById('prev-button').addEventListener('click', () => {
+					if (currentSection === 'section2') {
+						showSection('section1');
+					} else if (currentSection === 'section3') {
+						showSection('section2');
+					} else if (currentSection === 'section4') {
+						showSection('section3');
+					}
+				});
+
+				document.getElementById('next-button').addEventListener('click', () => {
+					if (currentSection === 'section1') {
+						showSection('section2');
+					} else if (currentSection === 'section2') {
+						showSection('section3');
+					} else if (currentSection === 'section3') {
+						showSection('section4');
+					}  
+				});
 			  </script>
 
 	</body>
